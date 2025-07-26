@@ -1,5 +1,12 @@
 shopping_list  = []
 
+def display_menu():
+    print("Shopping List Manager")
+    print("1. Add Item")
+    print("2. Remove Item")
+    print("3. Display Items")
+    print("4. Exit")
+
 def add_item():
     item = input(f"Enter item to add to shopping list: ")
     shopping_list.append(item)
@@ -20,7 +27,8 @@ def display_items():
             print(f"- {item}")
 
 def main():
-    user_choice = input("Choose an action: add, remove, display, or exit: ").strip().lower()
+    display_menu()
+    user_choice = input(": ").strip().lower()
     while user_choice != 'exit':
         if user_choice == 'add':
             add_item()
@@ -30,7 +38,7 @@ def main():
             display_items()
         else:
             print("Invalid choice. Please choose 'add', 'remove', 'display', or 'exit'.")
-        
+        display_menu()
         user_choice = input("Choose an action: add, remove, display, or exit: ").strip().lower()
 
 if __name__ == "__main__":
