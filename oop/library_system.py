@@ -21,3 +21,18 @@ class PrintBook(Book):
 
     def __str__(self):
         return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+    
+class Library:
+    def __init__(self):
+        self._books = {}  # Using dictionary instead of list to store books
+        
+    def add_book(self, book):
+        """Add a book to the library"""
+        if not hasattr(self, '_books'):
+            self._books = {}
+        key = (book.title, book.author)
+        self._books[key] = book
+        
+    def list_books(self):
+        """Return a list of all books in the library"""
+        return [str(book) for book in self._books.values()]
